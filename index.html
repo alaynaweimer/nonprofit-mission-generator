@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<!--
+═══════════════════════════════════════════════════════════════════════
+  MISSION STATEMENT GENERATOR
+  
+  Copyright © 2025 Alayna Marie Weimer. All Rights Reserved.
+  
+  CREATOR & COPYRIGHT HOLDER: Alayna Marie Weimer (individual)
+  BUSINESS OPERATOR: IEF Fractional Services (operates under license)
+  
+  Licensed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
+  https://creativecommons.org/licenses/by-nc-nd/4.0/
+  
+  ✓ FREE for nonprofit organizations
+  ✓ FREE for personal, non-commercial use
+  ✗ COMMERCIAL USE PROHIBITED without written license from Alayna Marie Weimer
+  ✗ MODIFICATIONS PROHIBITED
+  ✗ REDISTRIBUTION PROHIBITED
+  
+  This tool is part of the Nonprofit Toolkit Hub.
+  
+  INTELLECTUAL PROPERTY OWNERSHIP:
+  This work is the sole and exclusive property of Alayna Marie Weimer.
+  IEF Fractional Services operates this tool under revocable license from
+  Alayna Marie Weimer. All intellectual property rights, including but not
+  limited to copyrights, remain exclusively with Alayna Marie Weimer.
+  
+  Upon termination of Alayna Marie Weimer's relationship with IEF Fractional
+  Services, all rights to this work revert completely to Alayna Marie Weimer.
+  
+  For commercial licensing inquiries:
+  Contact: Alayna Marie Weimer
+  Email: alayna@ignitepositivechanges.com
+  
+  Unauthorized commercial use, modification, or redistribution is 
+  prohibited and will be enforced.
+  
+  Created with ❤️ for nonprofit leaders everywhere.
+═══════════════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Statement Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .instructions {
+            background: #f5f7fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .instructions h2 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .instructions p {
+            color: #5a6c7d;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .examples {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .examples h3 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .example-item {
+            color: #5a6c7d;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .example-item strong {
+            color: #2c3e50;
+            font-style: normal;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .question-group {
+            margin-bottom: 25px;
+        }
+
+        .question-label {
+            display: block;
+            color: #2c3e50;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .question-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-size: 0.9em;
+            margin-right: 8px;
+        }
+
+        .optional-tag {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            margin-left: 8px;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e6ed;
+            border-radius: 8px;
+            font-size: 1em;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .result-section {
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .result-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .result-header {
+            color: #2c3e50;
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .result-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            font-size: 1.2em;
+            line-height: 1.8;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            margin-bottom: 20px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result-text {
+            font-weight: 400;
+        }
+
+        .result-text .highlight {
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f5f7fa;
+            color: #2c3e50;
+            border: 2px solid #e0e6ed;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e6ed;
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .success-message {
+            background: #4caf50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .success-message.show {
+            opacity: 1;
+        }
+
+        .placeholder-text {
+            color: #95a5a6;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 25px 20px;
+            }
+
+            .result-box {
+                font-size: 1.1em;
+                padding: 25px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation: fadeInUp 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div style="font-size: 0.9em; margin-bottom: 10px; opacity: 0.95;">
+                Powered by <strong>IEF Fractional Services</strong>
+            </div>
+            <h1>✨ Mission Statement Generator</h1>
+            <p>Create a powerful, professional mission statement in minutes</p>
+            <p style="font-size: 0.85em; margin-top: 10px; opacity: 0.9;">
+                Part of the Nonprofit Toolkit Hub by Alayna Weimer
+            </p>
+        </div>
+
+        <div class="content">
+            <div style="background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%); border: 2px solid #667eea; padding: 20px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);">
+                <div style="text-align: center; margin-bottom: 12px;">
+                    <strong style="font-size: 1.1em; color: #2c3e50;">
+                        © 2025 Alayna Weimer
+                    </strong>
+                    <div style="font-size: 0.85em; color: #666; margin-top: 5px;">
+                        Operated through IEF Fractional Services
+                    </div>
+                </div>
+                <div style="text-align: center; font-size: 0.95em; color: #5a6c7d; line-height: 1.8;">
+                    Licensed under 
+                    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" style="color: #667eea; text-decoration: none; font-weight: 600;">
+                        CC BY-NC-ND 4.0
+                    </a>
+                    <br>
+                    <span style="color: #4caf50; font-weight: 600;">✓ Free for Nonprofits</span> | 
+                    <span style="color: #667eea; font-weight: 600;">Commercial License Available</span>
+                    <br>
+                    <a href="/cdn-cgi/l/email-protection#057c6a7077286068646c6945607d64687569602b666a68" style="color: #667eea; text-decoration: none; font-size: 0.9em;">
+                        Contact for Commercial Licensing
+                    </a>
+                </div>
+            </div>
+            
+            <div class="instructions">
+                <h2>📋 How It Works</h2>
+                <p>Answer the questions below, and watch your mission statement build in real-time. Be specific and authentic—your mission statement should clearly communicate your organization's purpose and impact.</p>
+            </div>
+
+            <div class="examples">
+                <h3>💡 Inspiration: Great Mission Statements</h3>
+                <div class="example-item">
+                    <strong>Habitat for Humanity:</strong> "Seeking to put God's love into action, Habitat for Humanity brings people together to build homes, communities, and hope."
+                </div>
+                <div class="example-item">
+                    <strong>American Red Cross:</strong> "The American Red Cross prevents and alleviates human suffering in the face of emergencies by mobilizing the power of volunteers and the generosity of donors."
+                </div>
+                <div class="example-item">
+                    <strong>Feeding America:</strong> "To feed America's hungry through a nationwide network of member food banks and engage our country in the fight to end hunger."
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="question-group">
+                    <label class="question-label">
+                        <span class="question-number">1</span>
+                        What problem does your organization solve?
+                    </label>
+                    <input 
+                        type="text" 
+                        id="problem" 
+                        placeholder="Example: hunger in our community, lack of access to education, homelessness..."
+                    >
+                </div>
+
+                <div class="question-group">
+                    <label class="question-label">
+                        <span class="question-number">2</span>
+                        Who do you serve?
+                    </label>
+                    <input 
+                        type="text" 
+                        id="audience" 
+                        placeholder="Example: low-income families, at-risk youth, elderly individuals, veterans..."
+                    >
+                </div>
+
+                <div class="question-group">
+                    <label class="question-label">
+                        <span class="question-number">3</span>
+                        How do you serve them? (What services/programs do you provide?)
+                    </label>
+                    <textarea 
+                        id="method" 
+                        rows="3"
+                        placeholder="Example: by providing free meals, offering mentorship programs, delivering healthcare services..."
+                    ></textarea>
+                </div>
+
+                <div class="question-group">
+                    <label class="question-label">
+                        <span class="question-number">4</span>
+                        What is the ultimate outcome or impact?
+                    </label>
+                    <input 
+                        type="text" 
+                        id="outcome" 
+                        placeholder="Example: thriving communities, empowered individuals, healthier lives..."
+                    >
+                </div>
+
+                <div class="question-group">
+                    <label class="question-label">
+                        <span class="question-number">5</span>
+                        What makes your approach unique?
+                        <span class="optional-tag">OPTIONAL</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="unique" 
+                        placeholder="Example: through evidence-based programs, with community partnerships, using innovative technology..."
+                    >
+                </div>
+
+                <div class="question-group">
+                    <label class="question-label">
+                        <span class="question-number">6</span>
+                        What are your core values or guiding principles?
+                        <span class="optional-tag">OPTIONAL</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="values" 
+                        placeholder="Example: compassion, dignity, collaboration, equity..."
+                    >
+                </div>
+            </div>
+
+            <div class="result-section" id="resultSection">
+                <h2 class="result-header">🎯 Your Mission Statement</h2>
+                <div class="result-box">
+                    <div class="result-text" id="missionStatement">
+                        <span class="placeholder-text">Start filling out the questions above to see your mission statement appear here...</span>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()">
+                        📋 Copy to Clipboard
+                    </button>
+                    <button class="btn btn-secondary" id="downloadBtn" onclick="downloadPDF()">
+                        📄 Download as PDF
+                    </button>
+                    <button class="btn btn-secondary" onclick="resetForm()">
+                        🔄 Start Over
+                    </button>
+                </div>
+                <div class="success-message" id="successMessage">
+                    ✓ Copied to clipboard!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 40px 20px; color: white; background: rgba(0,0,0,0.2); margin-top: 40px;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div style="font-size: 1.1em; font-weight: 600; margin-bottom: 15px;">
+                🌟 Nonprofit Toolkit Hub
+            </div>
+            <div style="font-size: 0.95em; line-height: 1.8; margin-bottom: 20px;">
+                Created by <strong>Alayna Weimer</strong> | Bend, Oregon
+            </div>
+            <div style="font-size: 0.85em; opacity: 0.9; margin-bottom: 15px;">
+                Operated through IEF Fractional Services
+            </div>
+            <div style="font-size: 0.8em; opacity: 0.85; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 15px; margin-top: 15px;">
+                © 2025 Alayna Weimer. All Rights Reserved.<br>
+                Licensed under CC BY-NC-ND 4.0 | Free for nonprofits. Commercial licensing available.
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Get all input elements
+        const inputs = {
+            problem: document.getElementById('problem'),
+            audience: document.getElementById('audience'),
+            method: document.getElementById('method'),
+            outcome: document.getElementById('outcome'),
+            unique: document.getElementById('unique'),
+            values: document.getElementById('values')
+        };
+
+        const resultSection = document.getElementById('resultSection');
+        const missionStatement = document.getElementById('missionStatement');
+        const successMessage = document.getElementById('successMessage');
+
+        // Add event listeners to all inputs
+        Object.values(inputs).forEach(input => {
+            input.addEventListener('input', updateMissionStatement);
+        });
+
+        function updateMissionStatement() {
+            const problem = inputs.problem.value.trim();
+            const audience = inputs.audience.value.trim();
+            const method = inputs.method.value.trim();
+            const outcome = inputs.outcome.value.trim();
+            const unique = inputs.unique.value.trim();
+            const values = inputs.values.value.trim();
+
+            // Check if we have minimum required fields
+            if (!problem && !audience && !method && !outcome) {
+                missionStatement.innerHTML = '<span class="placeholder-text">Start filling out the questions above to see your mission statement appear here...</span>';
+                resultSection.classList.remove('visible');
+                return;
+            }
+
+            // Build the mission statement
+            let statement = '';
+
+            // Start with values if provided
+            if (values) {
+                statement += `Guided by ${values}, `;
+            }
+
+            // Core statement structure
+            if (problem || audience) {
+                statement += 'our mission is to ';
+                
+                if (problem) {
+                    statement += `address ${problem}`;
+                }
+                
+                if (audience) {
+                    if (problem) {
+                        statement += ' for ';
+                    }
+                    statement += `${audience}`;
+                }
+            }
+
+            // Add method
+            if (method) {
+                if (statement) {
+                    statement += ' ';
+                }
+                statement += `${method}`;
+            }
+
+            // Add unique approach
+            if (unique) {
+                statement += `, ${unique}`;
+            }
+
+            // Add outcome
+            if (outcome) {
+                if (statement) {
+                    statement += ', ';
+                }
+                statement += `to create ${outcome}`;
+            }
+
+            // Ensure proper capitalization and ending
+            if (statement) {
+                statement = statement.charAt(0).toUpperCase() + statement.slice(1);
+                if (!statement.endsWith('.')) {
+                    statement += '.';
+                }
+            }
+
+            // Update the display
+            if (statement) {
+                missionStatement.innerHTML = statement;
+                resultSection.classList.add('visible');
+            } else {
+                missionStatement.innerHTML = '<span class="placeholder-text">Start filling out the questions above to see your mission statement appear here...</span>';
+                resultSection.classList.remove('visible');
+            }
+        }
+
+        function copyToClipboard() {
+            const text = missionStatement.innerText;
+            
+            if (text.includes('Start filling out')) {
+                return;
+            }
+
+            navigator.clipboard.writeText(text).then(() => {
+                // Show success message
+                successMessage.classList.add('show');
+                
+                // Hide after 3 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 3000);
+            }).catch(err => {
+                alert('Failed to copy to clipboard. Please try selecting and copying the text manually.');
+            });
+        }
+
+        function downloadPDF() {
+            const text = missionStatement.innerText;
+            
+            if (text.includes('Start filling out')) {
+                alert('Please complete the form before downloading.');
+                return;
+            }
+
+            // Create a simple HTML document for PDF
+            const pdfContent = `
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mission Statement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            line-height: 1.8;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        .branding {
+            color: #667eea;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .creator {
+            color: #666;
+            font-size: 0.9em;
+        }
+        h1 {
+            color: #667eea;
+            margin: 20px 0 10px 0;
+        }
+        .mission {
+            font-size: 18px;
+            color: #2c3e50;
+            padding: 30px;
+            background: #f5f7fa;
+            border-left: 5px solid #667eea;
+            border-radius: 5px;
+            line-height: 1.8;
+        }
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e6ed;
+            text-align: center;
+            color: #95a5a6;
+            font-size: 14px;
+        }
+        .copyright {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="branding">IEF Fractional Services</div>
+        <div class="creator">Mission Statement Generator by Alayna Weimer</div>
+    </div>
+    
+    <h1>Our Mission Statement</h1>
+    <div class="mission">
+        ${text}
+    </div>
+    
+    <div class="footer">
+        Generated on ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        <br>
+        <strong>Nonprofit Toolkit Hub</strong>
+        <div class="copyright">
+            © 2025 IEF Fractional Services | CC BY-NC-ND 4.0 License
+            <br>
+            For more tools and resources, contact Alayna Weimer
+        </div>
+    </div>
+</body>
+</html>
+            `;
+
+            // Create a blob and download
+            const blob = new Blob([pdfContent], { type: 'text/html' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'mission-statement.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+
+            // Show message
+            alert('Your mission statement has been downloaded as an HTML file. You can open it in your browser and print it as a PDF using your browser\'s print function (Ctrl+P or Cmd+P, then "Save as PDF").');
+        }
+
+        function resetForm() {
+            if (confirm('Are you sure you want to start over? This will clear all your answers.')) {
+                Object.values(inputs).forEach(input => {
+                    input.value = '';
+                });

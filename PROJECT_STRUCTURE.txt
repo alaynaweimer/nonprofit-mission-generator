@@ -1,0 +1,68 @@
+📦 nonprofit-mission-generator/
+│
+├── 📄 START_HERE.md ⭐ (Read this first!)
+│   └── Quick overview of all deployment options
+│
+├── 🎯 index.html
+│   └── The complete calculator (20KB, ready to use)
+│
+├── 📖 README.md
+│   └── Full project documentation
+│
+├── 🚀 GITHUB_SETUP.md
+│   └── Step-by-step GitHub deployment guide
+│
+├── 🎨 SQUARESPACE_INSTRUCTIONS.md
+│   └── Detailed Squarespace embedding guide
+│
+├── 📝 CHANGELOG.md
+│   └── Version history and future features
+│
+├── ⚖️ LICENSE
+│   └── MIT License (free to use and modify)
+│
+├── 🔒 .gitignore
+│   └── Git configuration
+│
+└── 📁 .git/
+    └── Git repository (ready to push)
+
+════════════════════════════════════════════════
+
+QUICK START OPTIONS:
+
+1️⃣  GitHub + Pages (Recommended)
+    → Read GITHUB_SETUP.md
+    → Push to GitHub
+    → Enable Pages
+    → Share the live link!
+
+2️⃣  Squarespace Embed
+    → Read SQUARESPACE_INSTRUCTIONS.md
+    → Copy index.html code
+    → Paste into Code Block
+    → Publish!
+
+3️⃣  Standalone Use
+    → Open index.html in browser
+    → Works immediately!
+    → Share the file with others
+
+════════════════════════════════════════════════
+
+KEY FILES:
+
+✨ index.html (20KB)
+   - Complete calculator
+   - All CSS inline
+   - All JavaScript inline
+   - No dependencies
+   - Works offline
+
+📚 Documentation (4 guides)
+   - START_HERE.md (overview)
+   - README.md (features)
+   - GITHUB_SETUP.md (deployment)
+   - SQUARESPACE_INSTRUCTIONS.md (embedding)
+
+════════════════════════════════════════════════
